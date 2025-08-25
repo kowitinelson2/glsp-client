@@ -1,0 +1,33 @@
+{
+  "name": "parent",
+  "version": "2.4.0",
+  "private": true,
+  "workspaces": [
+    "wla-glsp",
+    "wla-theia",
+    "wla-browser-app"
+  ],
+  "scripts": {
+    "all": "yarn clean && yarn install && yarn lint",
+    "browser": " yarn --cwd wla-browser-app",
+    "build": "yarn compile && yarn browser bundle",
+    "check:theia-version": "theia check:theia-version",
+    "clean": "lerna run clean",
+    "compile": "tsc -b",
+    "prepare": "yarn build && yarn check:theia-version",
+    "rebuild:browser": "theia rebuild:browser",
+    "start": "yarn browser start",
+    "start:external": "yarn browser start:external",
+    "watch": "concurrently --kill-others -n tsc,browser -c red,yellow,green \"tsc -b -w --preserveWatchOutput\" \"yarn -s browser watch\""
+  },
+  "devDependencies": {
+    "@eclipse-glsp/config": "2.4.0",
+    "concurrently": "^8.2.2",
+    "lerna": "8.1.7",
+    "typescript": "^5.5.3"
+  },
+  "engines": {
+    "node": ">=16.11.0",
+    "yarn": ">=1.7.0 <2.x.x"
+  }
+}

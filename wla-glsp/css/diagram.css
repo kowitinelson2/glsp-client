@@ -1,0 +1,324 @@
+.job-daily {
+    fill: #dfffdf;
+}
+
+.job-multiple-times-a-day {
+    fill: #ffffaa;
+}
+
+.job-no-scheduling-information {
+    fill: #ffffff;
+}
+
+.job-on-ice {
+    fill: #abc0d0;
+}
+
+.job-on-noexec {
+    fill: #cfcfbf;
+}
+
+.job-on-hold {
+    fill: #ff8000;
+}
+
+.job-referenced-not-found {
+    fill: #ffaaaa;
+}
+
+.job-no-direct-dependencies {
+    stroke: grey;
+    stroke-width: 2;
+}
+
+.job-no-direct-predecessors {
+    stroke: blue;
+    stroke-width: 2;
+}
+
+.job-no-direct-successors {
+    stroke: green;
+    stroke-width: 2;
+}
+
+.job-direct-dependecies {
+    stroke: #2a3b4b;
+    stroke-width: 2;
+}
+
+.job-no-known-execution {
+    stroke: #aaaa00;
+}
+
+.job-no-recent-run {
+    stroke: red;
+}
+
+.port-success {
+    fill: green;
+}
+
+.port-done {
+    fill: #ff00ff;
+}
+
+.port-failure {
+    fill: red;
+}
+
+.port-terminated {
+    fill: black;
+}
+
+.port-not-running {
+    fill: darkblue;
+}
+
+.port-exit-code {
+    fill: #aaaa00;
+}
+
+.port-global-variable {
+    fill: brown;
+}
+
+.edge-done {
+    stroke: #ff00ff;
+    fill: none;
+    stroke-width: 2;
+}
+
+.edge-success {
+    stroke: green;
+    fill: none;
+    stroke-width: 2;
+}
+
+.edge-terminated {
+    stroke: black;
+    fill: none;
+    stroke-width: 2;
+}
+
+.edge-failure {
+    stroke:red;
+    fill: none;
+    stroke-width: 2;
+}
+
+.edge-exit-code {
+    stroke: #aaaa00;
+    fill: none;
+    stroke-width: 2;
+}
+
+.edge-not-running {
+    stroke: darkblue;
+    fill: none;
+    stroke-width: 2;
+}
+
+.edge-global-variable {
+    stroke: brown;
+    fill: none;
+    stroke-width: 2;
+}
+
+.sprotty .arrow-done {
+    stroke: #ff00ff;
+    fill: #ff00ff;
+}
+
+.arrow-success {
+    stroke: green;
+    fill: green;
+}
+
+.arrow-terminated {
+    stroke: black;
+    fill: black;
+}
+
+.arrow-failure {
+    stroke:red;
+    fill: red;
+}
+
+.arrow-exit-code {
+    stroke: #aaaa00;
+    fill: #aaaa00;
+}
+
+.arrow-not-running {
+    stroke: darkblue;
+    fill: darkblue;
+}
+
+.arrow-global-variable {
+    stroke: brown;
+    fill: brown;
+}
+
+.sprotty .text-success {
+    fill: green;
+}
+
+.sprotty .text-done {
+    fill: #ff00ff;
+}
+
+.sprotty .text-failure {
+    fill: red;
+}
+
+.sprotty .text-terminated {
+    fill: black;
+}
+
+.sprotty .text-not-running {
+    fill: darkblue;
+}
+
+.sprotty .text-exit-code {
+    fill: #aaaa00;
+}
+
+.sprotty .text-global-variable {
+    fill: brown;
+}
+
+.or-condition {
+    fill: pink;
+}
+
+.sprotty-graph {
+    width: 100%;
+    height: 100%;
+}
+
+.sprotty .label-node-text {
+    font-family: sans-serif;
+    font-size: 12pt;   
+}
+
+.sprotty .label-port-text {
+    font-family: sans-serif;
+    font-size: 12pt;   
+}
+
+.label-container {
+    fill: pink;
+}
+
+.days-of-week {
+    fill: #ffffff00;
+}
+
+.run-calendar {
+    fill: #dfdfff;
+}
+
+.job-name {
+    fill: #ffffff00;
+}
+
+.run-window {
+    fill: #ffffff00;
+}
+
+.start-mins {
+    fill: #ffffff00;
+}
+
+.start-times {
+    fill: #ffffff00;
+}
+
+.timezone {
+    fill: #ffffff00;
+}
+
+.exclude-calendar {
+    fill: #dfdfff;
+}
+
+.job-selected {
+    stroke-width: 3;
+}
+
+.job-mouseover {
+    stroke-width: 3;
+}
+
+.edge-selected {
+    stroke-width: 3;
+}
+
+.edge-mouseover {
+    stroke-width: 4;
+}
+
+.sprotty-button {
+    fill: blue;
+    stroke-width: 0;
+}
+
+.class-context-menu {
+    background-color: #dee2e6;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    border: 1px solid #adb5bd;
+    border-radius: 3px;
+    padding: 1px;
+}
+
+.class-context-menu-item {
+    background-color: #dee2e6;
+    padding: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-width: 100px;
+    font-family: sans-serif;
+    cursor: default;
+}
+
+.class-context-menu-item.disabled-action {
+    color: darkgray;
+}
+
+.class-context-menu-item:empty {
+    padding: 0px;
+    border-bottom: 1.5px solid #adb5bd;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.class-context-menu-item:hover:not(.disabled-action) {
+    color: green;
+}
+
+.sprotty-popup-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.3em;
+}
+
+.sprotty-popup-body {
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+#sprotty-popup {
+    background: white;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 10px 14px;
+    
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    color: #333;
+}

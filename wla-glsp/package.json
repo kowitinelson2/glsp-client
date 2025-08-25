@@ -1,0 +1,23 @@
+{
+  "name": "wla-glsp",
+  "version": "2.4.0",
+  "private": "true",
+  "description": "GLSP sprotty diagrams for the EMF model DSL",
+  "main": "lib/index",
+  "types": "lib/index",
+  "files": [
+    "lib",
+    "src",
+    "css"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "lint": "eslint --ext .ts,.tsx ./src",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@eclipse-glsp/client": "2.4.0",
+    "balloon-css": "^0.5.0"
+  }
+}

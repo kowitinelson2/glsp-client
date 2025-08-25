@@ -1,0 +1,25 @@
+{
+  "name": "wla-theia",
+  "version": "2.4.0",
+  "private": "true",
+  "description": "Theia extension for the GLSP example",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@eclipse-glsp/theia-integration": "2.4.0",
+    "wla-glsp": "2.4.0"
+  },
+  "theiaExtensions": [
+    {
+      "frontend": "lib/browser/frontend-module",
+      "backend": "lib/node/backend-module"
+    }
+  ]
+}
