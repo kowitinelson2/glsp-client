@@ -1,6 +1,8 @@
 import {   
     bindAsService,
     bindOrRebind,
+    CollapseExpandAction,
+    configureActionHandler,
     configureDefaultModelElements,
     configureModelElement,
     ConsoleLogger,
@@ -27,10 +29,12 @@ import {
 import { Container} from 'inversify';
 import '../css/diagram.css';
 import 'sprotty/css/sprotty.css';
-import { BoxView, ClusterView, JobNodeView, ParentNodeView, SimpleView } from './views/nodeviews';
+import { BoxView, ClusterView, JobNodeView, ParentNodeView, SimpleView, SubGraphView } from './views/nodeviews';
 import { DependencyView } from './views/edgeviews';
 import { PortViewWithLabel } from './views/portviews';
 import { CustomLabelView } from './views/labelviews';
+import { ClusterNode } from './model';
+import { ExpandHandler } from './action/collapse-expand';
 
 const wlaDiagramModule = new FeatureModule((bind, unbind, isBound, rebind) => {
     const context = { bind, unbind, isBound, rebind };
@@ -39,12 +43,16 @@ const wlaDiagramModule = new FeatureModule((bind, unbind, isBound, rebind) => {
     bindOrRebind(context, TYPES.LogLevel).toConstantValue(LogLevel.warn);
     bindAsService(context, TYPES.ICommandPaletteActionProvider, RevealNamedElementActionProvider);
     bindAsService(context, TYPES.IContextMenuItemProvider, DeleteElementContextMenuItemProvider);
+    bind(ExpandHandler).toSelf().inSingletonScope();
+
+    configureActionHandler(context, CollapseExpandAction.KIND, ExpandHandler);
 
     configureDefaultModelElements(context);
     configureModelElement(context, 'graph:customgraph', GGraph, GGraphView);
     configureModelElement(context, 'node:rootnode', GNode, ParentNodeView)
     configureModelElement(context, 'node:job', GNode, JobNodeView)
-    configureModelElement(context, 'node:cluster', GNode, ClusterView)
+    configureModelElement(context, 'node:cluster', ClusterNode, ClusterView)
+    configureModelElement(context, 'node:subgraph', GNode, SubGraphView)
     configureModelElement(context, 'node:box', GNode, BoxView)
     configureModelElement(context, 'node:simple', GNode, SimpleView)
     configureModelElement(context, 'port:simplein', GPort, PortViewWithLabel, {

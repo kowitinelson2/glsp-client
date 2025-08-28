@@ -18,6 +18,7 @@ import { GNode, IView, IViewArgs, RenderingContext, ShapeView } from '@eclipse-g
 import { injectable } from 'inversify';
 import { h, VNode } from 'snabbdom';
 import { isEven, mapClassesToBoolean } from '../helper';
+import { ClusterNode } from '../model';
 
 @injectable()
 export class BoxView extends ShapeView {
@@ -47,7 +48,7 @@ export class BoxView extends ShapeView {
         const angle = 4;
 
         const frontFace = `M 0 0 L ${width} 0 L ${width} ${height} L 0 ${height} Z`;
-        const upperFace = `M 0 0 L ${angle} -${angle} L ${width + angle} -${angle} L ${width} 0`;
+        const upperFace = `M 0 0 L ${angle} -${angle} L ${width + angle} -${angle} L ${width} 0 Z`;
         const rightFace = `M ${width} ${height} L ${width + angle} ${height - angle} L ${width + angle} -${angle}`;
 
         const faceAttrs = (d: string) => ({
@@ -63,9 +64,10 @@ export class BoxView extends ShapeView {
         });
 
         return h('g', [
-            h('path', faceAttrs(frontFace)),
             h('path', faceAttrs(upperFace)),
-            h('path', faceAttrs(rightFace))
+            h('path', faceAttrs(rightFace)),
+            h('path', faceAttrs(frontFace))
+            
         ]);
     }
 }
@@ -194,7 +196,7 @@ export class ParentNodeView implements IView {
 
 @injectable()
 export class ClusterView extends ShapeView {
-    render(node: Readonly<GNode>, context: RenderingContext, args?: IViewArgs): VNode | undefined {
+    render(node: Readonly<ClusterNode>, context: RenderingContext, args?: IViewArgs): VNode | undefined {
         if(!this.isVisible(node, context)) {
             return undefined;
         }
@@ -209,7 +211,7 @@ export class ClusterView extends ShapeView {
                     y: 0,
                     width: width,
                     height: height,
-                    fill: isEven((node as any).boxLevel ?? 0) ? '#f0f0ff' : '#f8f8ff',
+                    fill: isEven((node as any).level ?? 0) ? '#f0f0ff' : '#f8f8ff',
                     rx: 3,
                     ry: 3
                 },
