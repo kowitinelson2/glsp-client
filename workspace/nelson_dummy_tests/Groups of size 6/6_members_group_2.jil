@@ -1,0 +1,23 @@
+insert_job: saturday   job_type: CMD
+condition: s(friday)
+
+
+insert_job: friday   job_type: CMD
+condition: e(thursday) = 123
+
+
+insert_job: thursday   job_type: CMD
+condition: s(wednesday)
+
+
+insert_job: wednesday   job_type: CMD
+condition: s(tuesday)
+
+
+insert_job: tuesday   job_type: CMD
+condition: s(monday)
+
+
+insert_job: monday   job_type: CMD
+
+

@@ -1,0 +1,27 @@
+insert_job: public_liability   job_type: CMD
+condition: s(fire_insurance) & s(theft_insurance)
+
+
+insert_job: employers_liability   job_type: CMD
+condition: s(marine_and_aviation)
+
+
+insert_job: theft_insurance   job_type: CMD
+condition: s(marine_and_aviation)
+
+
+insert_job: fire_insurance   job_type: CMD
+condition: s(marine_and_aviation)
+
+
+insert_job: marine_and_aviation   job_type: CMD
+condition: s(introduction)
+
+
+insert_job: introduction   job_type: CMD
+days_of_week: all
+condition: v(EA) = "start"
+start_mins: 00,10,20,30,40,50
+date_conditions: 1
+
+

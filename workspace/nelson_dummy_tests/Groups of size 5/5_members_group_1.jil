@@ -1,0 +1,32 @@
+insert_job: generate_tax_reports   job_type: CMD
+condition: s(reconcile_bank_accounts)
+description: "Generate tax reports"
+command: "echo Generating tax reports"
+
+
+insert_job: reconcile_bank_accounts   job_type: CMD
+condition: s(payroll_group_box)
+description: "Reconcile bank accounts"
+command: "echo Reconciling bank accounts"
+
+
+insert_job: payroll_group_box   job_type: BOX
+days_of_week: tu,we,th,fr,sa
+start_times: "04:10"
+exclude_calendar: PR_HOLI
+description: "Processes related to payroll"
+date_conditions: 1
+
+
+insert_job: generate_salary_slips   job_type: CMD
+box_name: payroll_group_box
+description: "Generate salary slips"
+command: "echo Generating salary slips"
+
+
+insert_job: disburse_salaries   job_type: CMD
+box_name: payroll_group_box
+description: "Disburse salaries"
+command: "echo Disbursing salaries"
+
+

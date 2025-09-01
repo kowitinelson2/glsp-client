@@ -1,0 +1,127 @@
+insert_job: prg_fail   job_type: CMD
+condition: f(prg_evaluate_managers) & t(prg_evaluate_managers)
+
+
+insert_job: prg_set_goals   job_type: CMD
+condition: d(prg_performance_review_box)
+description: "apply review results"
+
+
+insert_job: prg_performance_review_box   job_type: BOX
+condition: d(recruitment_group_box)
+description: "echo conducting performance reviews"
+
+
+insert_job: prg_individual_review_box   job_type: BOX
+box_name: prg_performance_review_box
+
+
+insert_job: prg_assign_reviewers_box   job_type: BOX
+box_name: prg_individual_review_box
+description: "performance review"
+
+
+insert_job: prg_identify_eligible_reviewers   job_type: CMD
+box_name: prg_assign_reviewers_box
+description: "identify eligible reviewers"
+
+
+insert_job: prg_match_reviewers   job_type: CMD
+condition: s(prg_identify_eligible_reviewers)
+box_name: prg_assign_reviewers_box
+description: "match reviewers"
+
+
+insert_job: prg_collect_employee_data   job_type: CMD
+condition: s(prg_assign_reviewers_box)
+box_name: prg_individual_review_box
+description: "collect employee data"
+
+
+insert_job: prg_conduct_one_on_ones   job_type: CMD
+condition: s(prg_collect_employee_data)
+box_name: prg_individual_review_box
+description: "conduct one on ones"
+
+
+insert_job: prg_team_review_box   job_type: BOX
+condition: s(prg_individual_review_box)
+box_name: prg_performance_review_box
+description: "Review team performance"
+
+
+insert_job: prg_evaluate_kpis   job_type: CMD
+box_name: prg_team_review_box
+
+
+insert_job: prg_aggregate_team_data   job_type: CMD
+condition: s(prg_evaluate_kpis)
+box_name: prg_team_review_box
+
+
+insert_job: prg_team_improvement   job_type: CMD
+condition: s(prg_aggregate_team_data)
+box_name: prg_team_review_box
+
+
+insert_job: prg_leadership_review_box   job_type: BOX
+box_name: prg_performance_review_box
+description: "Review management performance"
+
+
+insert_job: prg_review_dept_goals   job_type: CMD
+box_name: prg_leadership_review_box
+
+
+insert_job: prg_evaluate_managers   job_type: CMD
+condition: s(prg_review_dept_goals)
+box_name: prg_leadership_review_box
+
+
+insert_job: prg_submit_feedback   job_type: CMD
+condition: s(prg_evaluate_managers)
+box_name: prg_leadership_review_box
+
+
+insert_job: conduct_interviews   job_type: BOX
+condition: s(post_job_ads)
+description: "Interview Candidates"
+
+
+insert_job: zoom_interview   job_type: CMD
+box_name: conduct_interviews
+description: "Conduct zoom interviews"
+command: "echo Zoom interviews"
+
+
+insert_job: take_home_assignment   job_type: CMD
+condition: d(zoom_interview)
+box_name: conduct_interviews
+description: "Give task"
+command: "echo Take home assignment"
+
+
+insert_job: recruitment_group_box   job_type: BOX
+description: "Processes related to recruitment"
+
+
+insert_job: post_job_ads   job_type: CMD
+box_name: recruitment_group_box
+description: "Post job advertisements"
+command: "echo Posting job advertisements"
+
+
+insert_job: perform_background_checks   job_type: CMD
+condition: s(post_job_ads)
+box_name: recruitment_group_box
+description: "Perform background checks"
+command: "echo Performing background checks"
+
+
+insert_job: issue_offer_letters   job_type: CMD
+condition: s(perform_background_checks)
+box_name: recruitment_group_box
+description: "Issue offer letters"
+command: "echo Issuing offer letters"
+
+

@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
 /** @jsx svg */
-import { angleOfPoint, GEdge, getSubType, Point, PolylineEdgeView, setClass, toDegrees, RenderingContext } from '@eclipse-glsp/client';
+import { angleOfPoint, GEdge, getSubType, Point, PolylineEdgeView, setClass, toDegrees, RenderingContext} from '@eclipse-glsp/client';
 import { injectable } from 'inversify';
 import { h, VNode } from 'snabbdom';
 
@@ -37,6 +37,7 @@ export class DependencyView extends PolylineEdgeView {
         if (!router) {
             return undefined;
         }
+
 
         const route = router.route(edge);
 

@@ -1,0 +1,55 @@
+insert_job: Chores_Box   job_type: BOX
+
+
+insert_job: boil_water   job_type: CMD
+box_name: Chores_Box
+
+
+insert_job: grind_coffee_beans   job_type: CMD
+condition: s(boil_water)
+box_name: Chores_Box
+
+
+insert_job: place_filter   job_type: CMD
+condition: s(grind_coffee_beans)
+box_name: Chores_Box
+
+
+insert_job: pour_hot_water   job_type: CMD
+condition: s(place_filter)
+box_name: Chores_Box
+
+
+insert_job: unbox_laptop   job_type: CMD
+box_name: Chores_Box
+
+
+insert_job: plug_in_power   job_type: CMD
+condition: s(unbox_laptop)
+box_name: Chores_Box
+
+
+insert_job: turn_on   job_type: CMD
+condition: s(plug_in_power)
+box_name: Chores_Box
+
+
+insert_job: choose_location   job_type: CMD
+box_name: Chores_Box
+
+
+insert_job: prepare_soil   job_type: CMD
+condition: d(choose_location)
+box_name: Chores_Box
+
+
+insert_job: select_seeds   job_type: CMD
+condition: s(choose_location)
+box_name: Chores_Box
+
+
+insert_job: select_seedlings   job_type: CMD
+condition: s(choose_location)
+box_name: Chores_Box
+
+

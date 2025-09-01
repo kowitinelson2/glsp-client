@@ -1,0 +1,51 @@
+insert_job: primer_application   job_type: CMD
+condition: s(engine_assembly) & e(chassis_assembly) = 123
+
+
+insert_job: chassis_assembly   job_type: CMD
+condition: s(design_development)
+
+
+insert_job: engine_assembly   job_type: CMD
+condition: s(design_development)
+
+
+insert_job: plastic_injection   job_type: CMD
+condition: s(engineering_design) & t(casting)
+
+
+insert_job: casting   job_type: CMD
+condition: s(design_development)
+
+
+insert_job: engineering_design   job_type: CMD
+condition: s(design_development)
+
+
+insert_job: forging   job_type: CMD
+condition: s(clay_modeling) & s(aerodynamics_testing)
+
+
+insert_job: aerodynamics_testing   job_type: CMD
+condition: s(design_development)
+
+
+insert_job: clay_modeling   job_type: CMD
+condition: s(design_development)
+
+
+insert_job: metal_stamping   job_type: CMD
+condition: s(concept_sketching) & d(digital_modeling)
+
+
+insert_job: digital_modeling   job_type: CMD
+condition: s(design_development)
+
+
+insert_job: concept_sketching   job_type: CMD
+condition: s(design_development)
+
+
+insert_job: design_development   job_type: CMD
+
+

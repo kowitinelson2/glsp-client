@@ -1,0 +1,4 @@
+insert_job: test_self_loop   job_type: CMD
+condition: d(test_self_loop)
+
+

@@ -1,0 +1,8 @@
+insert_job: date_of_birth   job_type: CMD
+condition: d(name_of_animal)
+
+
+insert_job: location_of_birth   job_type: CMD
+condition: d(name_of_animal)
+
+

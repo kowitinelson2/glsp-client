@@ -204,6 +204,9 @@ export class ClusterView extends ShapeView {
         const width = Math.max(node.size?.width, 0);
         const height = Math.max(node.size?.height, 0);
 
+        let level: number = 0;
+        level = (node as any).args['level'] as number;
+
         const vnode = h('g', [
             h('rect', {
                 attrs: {
@@ -211,7 +214,7 @@ export class ClusterView extends ShapeView {
                     y: 0,
                     width: width,
                     height: height,
-                    fill: isEven((node as any).level ?? 0) ? '#f0f0ff' : '#f8f8ff',
+                    fill: isEven(level) ? '#f0f0ff' : '#f8f8ff',
                     rx: 3,
                     ry: 3
                 },

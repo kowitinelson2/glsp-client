@@ -1,0 +1,51 @@
+insert_job: client_onboarding   job_type: CMD
+condition: s(content_promotion)
+
+
+insert_job: content_promotion   job_type: CMD
+condition: s(budgeting)
+
+
+insert_job: procurement_process   job_type: CMD
+condition: s(budgeting)
+
+
+insert_job: budgeting   job_type: CMD
+condition: s(sales_process)
+
+
+insert_job: sales_process   job_type: CMD
+condition: s(deliver_systems)
+
+
+insert_job: onboarding_process   job_type: CMD
+condition: s(customer_service)
+
+
+insert_job: deliver_systems   job_type: CMD
+condition: s(customer_service)
+
+
+insert_job: product_development   job_type: CMD
+condition: s(marketing)
+
+
+insert_job: marketing   job_type: CMD
+condition: s(project_management)
+
+
+insert_job: customer_service   job_type: CMD
+condition: s(social_media)
+
+
+insert_job: social_media   job_type: CMD
+condition: s(project_management)
+
+
+insert_job: project_management   job_type: CMD
+condition: s(human_resources)
+
+
+insert_job: human_resources   job_type: CMD
+
+
